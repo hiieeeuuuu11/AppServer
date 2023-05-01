@@ -1,9 +1,11 @@
+package dao;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigBTL {
-    private static final String CONFIG_FILE_NAME = "AppServer/config.properties";
+    private static final String CONFIG_FILE_NAME = "E:/FinalApp/AppServer/config.properties";
     private static Properties configProperties;
 
     static {
@@ -15,12 +17,8 @@ public class ConfigBTL {
         }
     }
 
-    public static String getDbHost() {
-        return configProperties.getProperty("db.host");
-    }
-
-    public static int getDbPort() {
-        return Integer.parseInt(configProperties.getProperty("db.port"));
+    public static String getDbUrl() {
+        return configProperties.getProperty("db.url");
     }
 
     public static String getDbUsername() {
@@ -29,10 +27,6 @@ public class ConfigBTL {
 
     public static String getDbPassword() {
         return configProperties.getProperty("db.password");
-    }
-
-    public static String getSkHost() {
-        return configProperties.getProperty("sk.host");
     }
 
     public static int getSkPortLogin() {

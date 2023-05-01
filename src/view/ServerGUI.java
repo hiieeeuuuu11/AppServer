@@ -10,6 +10,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 import controller.LogInService;
+import dao.ConfigBTL;
 import model.User;
 
 import javax.swing.*;
@@ -18,7 +19,7 @@ public class ServerGUI {
     public void ser() {
         ServerSocket server = null;
         try {
-            server = new ServerSocket(2606);
+            server = new ServerSocket(ConfigBTL.getSkPortLogin());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -62,7 +63,7 @@ public class ServerGUI {
             @Override
             public void run() {
                 Server.listSK = new ArrayList<>();
-                Server server = new Server(15797);
+                Server server = new Server(ConfigBTL.getSkPortChat());
                 try {
                     server.execute();
                 } catch (IOException e) {
@@ -83,4 +84,7 @@ public class ServerGUI {
 
 
     }
+
+
+
 }

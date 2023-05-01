@@ -2,6 +2,7 @@ package view;
 
 import controller.LogInService;
 import controller.SignupService;
+import dao.ConfigBTL;
 import model.User;
 
 import java.io.BufferedReader;
@@ -15,7 +16,7 @@ public class SignUpServer {
     public void ser() {
         ServerSocket server = null;
         try {
-            server = new ServerSocket(2607);
+            server = new ServerSocket(ConfigBTL.getSkPortSignup());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
